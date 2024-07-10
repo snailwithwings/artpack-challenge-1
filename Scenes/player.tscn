@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://xtf6rm0o8ckx"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_2na45"]
+[ext_resource type="Texture2D" uid="uid://cgunu2nekl5jt" path="res://Assets/Sprites/Mermaid/mermaidIdle0Right.png" id="4_btq4t"]
+[ext_resource type="Texture2D" uid="uid://bwjynj3g7be0t" path="res://Assets/Sprites/Mermaid/mermaidIdleRight.png" id="5_exsu1"]
+[ext_resource type="Texture2D" uid="uid://btlotn1c77dow" path="res://Assets/Sprites/Mermaid/mermaidIdle2Right.png" id="7_omdxb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rt8or"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_btq4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_exsu1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_btq4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_exsu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_btq4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_omdxb")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptnts"]
+size = Vector2(12.5, 7)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_2na45")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_rt8or")
+animation = &"walking"
+frame_progress = 0.799732
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(2.25, 3.5)
+shape = SubResource("RectangleShape2D_ptnts")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
