@@ -11,6 +11,7 @@ func _ready():
 	animated_sprite = $AnimatedSprite2D;
 	# set the animation to "idle" on startup? seems to be working
 	animated_sprite.play("idle");
+	#add_to_group("Player");
 
 # this is the process loop that gets called each frame
 func _physics_process(delta):
@@ -50,4 +51,7 @@ func _physics_process(delta):
 	#TODO: test to see if this is necessary, according to the ARPG vid this moves the character with a calculated and set velocity
 	# it states that this will help handle collisions with the PC if necessary preventing getting getting stuck on walls or other objects
 	move_and_slide()
-	
+
+# used to check which npc is the player
+func player():
+	pass
